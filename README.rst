@@ -47,6 +47,7 @@ index.html
 
 
 ::
+
     This is an UI Page
     <%@ PostView(post_id)/>
 
@@ -57,12 +58,14 @@ ui/post.html
 
 
 ::
+
     This is a Post View
 
     Name: ${post.title}
     Content: ${post.content}
     
-.. code:: pyrhon
+
+.. code:: python
 
 
     def create_ui_container():
