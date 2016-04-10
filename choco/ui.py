@@ -41,17 +41,15 @@ class UIModule(object):
     def get_template(self):
         return self.ui_container.get_template(self.template)
 
-
     def render(self, *args, **kw):
         """Entry point and logic section for custom appliction actions"""
         raise NotImplemented()
 
 
-
 class UIContainer(object):
 
-    def __init__(self, ui_paths, uis={}):
-        """Init ui containter,
+    def __init__(self, ui_paths, uis=None):
+        """Init ui container,
 
         param ui_paths: the ui template paths.
         param uis: the dict like object, contains the  ui module classes.
@@ -59,7 +57,7 @@ class UIContainer(object):
         self.ui_paths = [posixpath.normpath(d) for d in
                          util.to_list(ui_paths, ())
                          ]
-        self.uis = uis
+        self.uis = uis or dict()
 
     def put_ui(self, ui_name, uicls):
         self.uis[ui_name] = uicls
@@ -69,7 +67,6 @@ class UIContainer(object):
         if uicls is None:
             raise errors.UINotFoundException("Cant's find ui for %s" % ui_name)
         return uicls
-
 
     def set_lookup(self, lookup):
         """Set up template lookup"""

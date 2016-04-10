@@ -68,10 +68,10 @@ class TopLevelLookupException(TemplateLookupException):
     pass
 
 
-
 class UINotFoundException(ChocoException):
     pass
-    
+
+
 class RichTraceback(object):
 
     """Pull the current exception from the ``sys`` traceback and extracts
@@ -395,4 +395,4 @@ def html_error_template():
 </html>
 % endif
 """, output_encoding=sys.getdefaultencoding(),
-                                  encoding_errors='htmlentityreplace')
+                                   encoding_errors='htmlentityreplace')
