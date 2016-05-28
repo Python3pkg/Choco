@@ -80,7 +80,7 @@ class UIContainer(object):
                the moment.
         """
         # the spefical ui uri with prefix "url://"
-        uiuri = "ui://" + uri
+        uiuri = "ui#" + uri
         try:
             if self.lookup.filesystem_checks:
                 return self.lookup.check(uiuri, self.lookup.collection[uiuri])

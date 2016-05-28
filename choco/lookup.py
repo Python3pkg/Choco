@@ -85,6 +85,7 @@ class TemplateCollection(object):
         """
         return uri
 
+
 class TemplateLookup(TemplateCollection):
 
     """Represent a collection of templates that locates template source files
@@ -233,10 +234,9 @@ class TemplateLookup(TemplateCollection):
             self._uri_cache = util.LRUCache(collection_size)
         self._mutex = threading.Lock()
 
-
     def get_ui(self, ui_name):
         return self.ui_container.get_ui(ui_name)
-        
+
     def get_template(self, uri):
         """Return a :class:`.Template` object corresponding to the given
         ``uri``.
@@ -371,7 +371,3 @@ class TemplateLookup(TemplateCollection):
 
         """
         self.collection[uri] = template
-
-
-class UiCollection(object):
-    pass
