@@ -49,9 +49,9 @@ class ExtractChocoTestCase(TemplateTest):
                 ('Goodbye, really!', None),
                 ('P.S. byebye', None),
                 ('Top', None),
-                (u'foo', None),
+                ('foo', None),
                 ('hoho', None),
-                (u'bar', None),
+                ('bar', None),
                 ('Inside a p tag', None),
                 ('Later in a p tag', None),
                 ('No action at a distance.', None)])

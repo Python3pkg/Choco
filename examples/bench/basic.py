@@ -31,7 +31,7 @@
 from cgi import escape
 import os
 try:
-    from StringIO import StringIO
+    from io import StringIO
 except ImportError:
     from io import StringIO
 import sys
@@ -61,7 +61,7 @@ def genshi(dirname, verbose=False):
         return template.generate(**data).render('xhtml')
 
     if verbose:
-        print(render())
+        print((render()))
     return render
 
 def myghty(dirname, verbose=False):
@@ -73,7 +73,7 @@ def myghty(dirname, verbose=False):
         interpreter.execute("template.myt", request_args=data, out_buffer=buffer)
         return buffer.getvalue()
     if verbose:
-        print(render())
+        print((render()))
     return render
 
 def choco(dirname, verbose=False):
@@ -85,7 +85,7 @@ def choco(dirname, verbose=False):
     def render():
         return template.render(title=TITLE, user=USER, list_items=U_ITEMS)
     if verbose:
-        print(template.code + " " + render())
+        print((template.code + " " + render()))
     return render
 choco_inheritance = choco
 
@@ -96,7 +96,7 @@ def jinja2(dirname, verbose=False):
     def render():
         return template.render(title=TITLE, user=USER, list_items=U_ITEMS)
     if verbose:
-        print(render())
+        print((render()))
     return render
 jinja2_inheritance = jinja2
 
@@ -110,9 +110,9 @@ def cheetah(dirname, verbose=False):
         return template.respond()
 
     if verbose:
-        print(dir(template))
-        print(template.generatedModuleCode())
-        print(render())
+        print((dir(template)))
+        print((template.generatedModuleCode()))
+        print((render()))
     return render
 
 def django(dirname, verbose=False):
@@ -128,7 +128,7 @@ def django(dirname, verbose=False):
         return tmpl.render(template.Context(data))
 
     if verbose:
-        print(render())
+        print((render()))
     return render
 
 def kid(dirname, verbose=False):
@@ -141,7 +141,7 @@ def kid(dirname, verbose=False):
         return template.serialize(output='xhtml')
 
     if verbose:
-        print(render())
+        print((render()))
     return render
 
 
@@ -150,7 +150,7 @@ def run(engines, number=2000, verbose=False):
     for engine in engines:
         dirname = os.path.join(basepath, engine)
         if verbose:
-            print('%s:' % engine.capitalize())
+            print(('%s:' % engine.capitalize()))
             print('--------------------------------------------------------')
         else:
             sys.stdout.write('%s:' % engine.capitalize())
@@ -161,7 +161,7 @@ def run(engines, number=2000, verbose=False):
         time = t.timeit(number=number) / number
         if verbose:
             print('--------------------------------------------------------')
-        print('%.2f ms' % (1000 * time))
+        print(('%.2f ms' % (1000 * time)))
         if verbose:
             print('--------------------------------------------------------')
 

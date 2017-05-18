@@ -37,7 +37,7 @@ ${x}
         code = template.code
         assert not re.match(r"loop = __M_loop._enter\(:", code), "No need to "\
                 "generate a loop context if the loop variable wasn't accessed"
-        print(template.render())
+        print((template.render()))
 
     def test_loop_demo(self):
         template = Template("""x|index|reverse_index|first|last|cycle|even|odd
@@ -174,7 +174,7 @@ class TestLoopContext(unittest.TestCase):
         length = len(self.iterable)
         expected = tuple([length-i-1 for i in range(length)])
         actual = tuple(self.ctx.reverse_index for i in self.ctx)
-        print(expected, actual)
+        print((expected, actual))
         assert expected == actual, "The reverse_index is the number of "\
                 "iterations until the end"
 

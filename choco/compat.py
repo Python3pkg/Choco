@@ -52,22 +52,21 @@ if py3k:
         return eval("0o" + lit)
 
 else:
-    import __builtin__ as compat_builtins  # noqa
+    import builtins as compat_builtins  # noqa
     try:
-        from cStringIO import StringIO
+        from io import StringIO
     except:
-        from StringIO import StringIO
+        from io import StringIO
 
     byte_buffer = StringIO
-
-    from urllib import quote_plus, unquote_plus  # noqa
-    from htmlentitydefs import codepoint2name, name2codepoint  # noqa
-    string_types = basestring,  # noqa
+    from urllib.parse import quote_plus, unquote_plus  # noqa
+    from html.entities import codepoint2name, name2codepoint  # noqa
+    string_types = str,  # noqa
     binary_type = str
-    text_type = unicode  # noqa
+    text_type = str  # noqa
 
     def u(s):
-        return unicode(s, "utf-8")  # noqa
+        return str(s, "utf-8")  # noqa
 
     def b(s):
         return s
@@ -112,13 +111,13 @@ try:
     if py3k:
         import _thread as thread
     else:
-        import thread
+        import _thread
 except ImportError:
     import dummy_threading as threading  # noqa
     if py3k:
         import _dummy_thread as thread
     else:
-        import dummy_thread as thread  # noqa
+        import _dummy_thread as thread  # noqa
 
 if win32 or jython:
     time_func = time.clock
@@ -150,7 +149,7 @@ try:
         if py3k:
             co = fn.__code__
         else:
-            co = fn.func_code
+            co = fn.__code__
 
         nargs = co.co_argcount
         names = co.co_varnames
@@ -167,7 +166,7 @@ try:
         if py3k:
             return args, varargs, varkw, fn.__defaults__
         else:
-            return args, varargs, varkw, fn.func_defaults
+            return args, varargs, varkw, fn.__defaults__
 except ImportError:
     import inspect
 

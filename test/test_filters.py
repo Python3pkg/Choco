@@ -46,7 +46,7 @@ class FilterTest(TemplateTest):
         """)
 
         eq_(
-            flatten_result(t.render(bar=u"酒吧bar")),
+            flatten_result(t.render(bar="酒吧bar")),
             "http://example.com/?bar=%E9%85%92%E5%90%A7bar&v=1"
         )
 
@@ -366,7 +366,7 @@ class BufferTest(unittest.TestCase):
 
 """)
         try:
-            print(template.render())
+            print((template.render()))
             assert False
         except TypeError:
             assert True

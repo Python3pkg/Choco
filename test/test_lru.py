@@ -86,7 +86,7 @@ class LRUTest(unittest.TestCase):
         # assert size doesn't grow unbounded, doesnt shrink well below size
         for x in range(0,5):
             time.sleep(1)
-            print("size:", len(cache))
+            print(("size:", len(cache)))
             assert len(cache) < size + size * threshold * 2
             assert len(cache) > size - (size * .1)
 
@@ -104,9 +104,9 @@ class LRUTest(unittest.TestCase):
         total_avg = average_regets_in_range(0, 2000)
 
         # hotzone should be way above the others
-        print("total fetches", total[0], "hotzone", \
+        print(("total fetches", total[0], "hotzone", \
                                 hotzone_avg, "control", \
-                                control_avg, "total", total_avg)
+                                control_avg, "total", total_avg))
 
         assert hotzone_avg > total_avg * 5 > control_avg * 5
 

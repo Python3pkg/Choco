@@ -81,8 +81,8 @@ class DefTest(TemplateTest):
             assert "a" not in template.module.render_c.__code__.co_varnames
             assert "a" in template.module.render_b.__code__.co_varnames
         else:
-            assert "a" not in template.module.render_c.func_code.co_varnames
-            assert "a" in template.module.render_b.func_code.co_varnames
+            assert "a" not in template.module.render_c.__code__.co_varnames
+            assert "a" in template.module.render_b.__code__.co_varnames
 
         # then test output
         eq_(
@@ -443,7 +443,7 @@ class ScopeTest(TemplateTest):
             ${enclosing()}
 """)
         try:
-            print(t.render())
+            print((t.render()))
             assert False
         except UnboundLocalError:
             assert True

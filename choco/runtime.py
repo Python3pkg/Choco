@@ -188,7 +188,7 @@ class CallerStack(list):
     def __init__(self):
         self.nextcaller = None
 
-    def __nonzero__(self):
+    def __bool__(self):
         return self.__bool__()
 
     def __bool__(self):
@@ -225,7 +225,7 @@ class Undefined(object):
     def __str__(self):
         raise NameError("Undefined")
 
-    def __nonzero__(self):
+    def __bool__(self):
         return self.__bool__()
 
     def __bool__(self):

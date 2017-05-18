@@ -61,8 +61,8 @@ template_bridge = "builder.builders.ChocoBridge"
 master_doc = 'index'
 
 # General information about the project.
-project = u'Choco'
-copyright = u'the Choco authors and contributors'
+project = 'Choco'
+copyright = 'the Choco authors and contributors'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -208,8 +208,8 @@ htmlhelp_basename = 'Chocodoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'choco_%s.tex' % release.replace('.', '_'), ur'Choco Documentation',
-   ur'Mike Bayer', 'manual'),
+  ('index', 'choco_%s.tex' % release.replace('.', '_'), r'Choco Documentation',
+   r'Mike Bayer', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -246,18 +246,18 @@ latex_preamble = '\setcounter{tocdepth}{3}'
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'choco', u'Choco Documentation',
-     [u'Choco authors'], 1)
+    ('index', 'choco', 'Choco Documentation',
+     ['Choco authors'], 1)
 ]
 
 
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'Choco'
-epub_author = u'Choco authors'
-epub_publisher = u'Choco authors'
-epub_copyright = u'Choco authors'
+epub_title = 'Choco'
+epub_author = 'Choco authors'
+epub_publisher = 'Choco authors'
+epub_copyright = 'Choco authors'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.

@@ -257,7 +257,7 @@ ${next.body()}
             print ${x}, ${y}, ${z}
         """)
         try:
-            print(collection.get_template('index').render(x=5,y=10))
+            print((collection.get_template('index').render(x=5,y=10)))
             assert False
         except TypeError:
             assert True

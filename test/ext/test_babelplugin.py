@@ -83,11 +83,11 @@ class ExtractChocoTestCase(TemplateTest):
     def test_extract_utf8(self):
         choco_tmpl = open(os.path.join(template_base, 'gettext_utf8.choco'), 'rb')
         message = next(extract(choco_tmpl, set(['_', None]), [], {'encoding': 'utf-8'}))
-        assert message == (1, '_', u'K\xf6ln', [])
+        assert message == (1, '_', 'K\xf6ln', [])
 
     @skip()
     def test_extract_cp1251(self):
         choco_tmpl = open(os.path.join(template_base, 'gettext_cp1251.choco'), 'rb')
         message = next(extract(choco_tmpl, set(['_', None]), [], {'encoding': 'cp1251'}))
         # "test" in Rusian. File encoding is cp1251 (aka "windows-1251")
-        assert message == (1, '_', u'\u0442\u0435\u0441\u0442', [])
+        assert message == (1, '_', '\u0442\u0435\u0441\u0442', [])

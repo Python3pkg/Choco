@@ -85,7 +85,7 @@ def raises(except_cls, message=None):
         if message:
             assert re.search(message, compat.text_type(e), re.UNICODE), \
                             "%r !~ %s" % (message, e)
-            print(compat.text_type(e).encode('utf-8'))
+            print((compat.text_type(e).encode('utf-8')))
         success = True
 
     # assert outside the block so it works for AssertionError too !

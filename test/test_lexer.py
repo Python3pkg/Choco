@@ -22,7 +22,7 @@ def _as_unicode(arg):
     elif isinstance(arg, dict):
         return dict(
             (_as_unicode(k), _as_unicode(v))
-            for k, v in arg.items()
+            for k, v in list(arg.items())
         )
     else:
         return arg
